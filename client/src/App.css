@@ -82,6 +82,26 @@ input{
   background-color: rgb(111, 244, 91);
   text-decoration: underline;
 }
+.mainbox{
+  display: flex;
+  justify-content: space-between;
+}
+
+.box{
+height: 300px;
+width: 300px;
+margin: 30px;
+background-color: black;
+color: white;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+/* float: left; */
+}
+
+/* custom css ends here */
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

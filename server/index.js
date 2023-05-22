@@ -3,6 +3,7 @@ const app=express()
 const bcrypt=require('bcrypt')
 require ('./conn/connect')
 const userModel=require('./models/user.model')
+const gymModel=require('./models/gym.model')
 const port=3005;
 const router=express.Router();
 const cors=require('cors')
@@ -57,4 +58,28 @@ console.log(password)
     })
     .catch((error) => console.log(error));
 });
+
+router.post('/gymtype',async(req,res)=>{
+
+  const {name,des,url}=await req.body
+  gymModel({name,des,url}).save().then((data)=>{console.log(`saved ${data}`)})
+  res.send('saved')
+})
+
+router.get('/gymtype',async (req,res)=>{
+  // console.log(req.body)
+
+ try{
+ const data=await gymModel.find()
+
+
+  res.json(data)
+  console.log(data)
+ }
+  catch(err){
+    console.log(err)
+    res.status(500).json({msg:"server Error"})
+  }
+  
+})
 
