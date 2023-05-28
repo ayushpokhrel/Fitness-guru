@@ -4,7 +4,7 @@ import { useNavigate,Link } from 'react-router-dom';
 const Login = () => {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
-    const [isloggedin,setIsloggedin]=useState('')
+    const [isloggedin,setIsloggedin]=useState(false)
     const navigate=useNavigate()
     const send=(e)=>{
         e.preventDefault();
@@ -17,17 +17,20 @@ const Login = () => {
         .then(
           res=>{
             console.log(res.data)
-          setIsloggedin(true)
+          if(res.data.loggedIn==true){
+            setIsloggedin(true)
+          }
         })
         .catch(err=>{console.log(err)})
       };
       if(isloggedin){
-        alert('logged in successfully')
-        navigate('/')
+        console.log('logged in successfully')
+        // navigate('/dashboard')
+      window.location.href = '/dashboard';
       }
       
   return (
-    <div className='container'><p className='ggName'>Gym Guru</p> <h3 className='title'>login</h3>
+    <div className='container'><p className='ggName'>Fitness Guru</p> <h3 className='title'>login</h3>
     <p className='email'> Email:</p> <input type="email" onChange={(e)=>setEmail(e.target.value)} /><br/>
      <p className="password">Password:</p> <input type="password" onChange={(e)=>setPassword(e.target.value)}/><br/>
     <button className='btn' onClick={send}>Log In</button>

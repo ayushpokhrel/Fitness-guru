@@ -1,6 +1,7 @@
 const express=require('express')
 const app=express()
 const bcrypt=require('bcrypt')
+const session = require('express-session');
 require ('./conn/connect')
 const userModel=require('./models/user.model')
 const gymModel=require('./models/gym.model')
@@ -9,7 +10,14 @@ const router=express.Router();
 const cors=require('cors')
 app.use(cors())
 app.use(express.json())
-app.use('/',router)
+
+// Set up express-session middleware
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+}));
+
 
 
 app.listen(port,(req,res)=>{
@@ -44,25 +52,41 @@ router.post('/login', (req, res) => {
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
       }
-console.log(password)
+
       bcrypt.compare(password, user.password, (err, result) => {
         if (err) {
           res.send(err + 'occurred');
         }
         if (result) {
-          return res.status(200).json({ msg: 'Login successful' });
+          req.session.user=user
+
+          return res.status(200).json({loggedIn:true, msg: 'Login successful' });
         } else {
-          return res.status(401).json({ msg: 'Invalid credentials' });
+          return res.status(401).json({ loggedIn:false,msg: 'Invalid credentials' });
         }
       });
+      
+      
+
     })
     .catch((error) => console.log(error));
+
+});
+
+router.get('/loggedIn', (req, res) => {
+  // console.log(req.session.user)
+  if (req.session){
+    console.log(req.session)
+    return res.json({ loggedIn: true, username:req.session.user.name });
+  } else {
+    return res.json({ loggedIn: false });
+  }
 });
 
 router.post('/gymtype',async(req,res)=>{
 
-  const {name,des,url}=await req.body
-  gymModel({name,des,url}).save().then((data)=>{console.log(`saved ${data}`)})
+  const {name,discription,url}=await req.body
+  gymModel({name,discription,url}).save().then((data)=>{console.log(`saved ${data}`)})
   res.send('saved')
 })
 
@@ -82,4 +106,7 @@ router.get('/gymtype',async (req,res)=>{
   }
   
 })
+
+app.use('/',router)
+
 

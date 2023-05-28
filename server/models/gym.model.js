@@ -5,7 +5,7 @@ const gymSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    des:{
+    discription:{
         type:String,
         required:true
     }

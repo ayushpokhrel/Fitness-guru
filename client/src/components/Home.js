@@ -37,7 +37,7 @@ const Home = () => {
         </div>
         {
           showAlert && <div className="body2" id="body2">
-            <p id="alertmsg">Don't have an account yet?</p>
+            <p id="alertmsg">Haven't logged in yet?</p>
             <Link to="/login" className="btns">Login</Link>
             <Link to="/register" className="btns">Register</Link>
             <Link className="btns" onClick={handleAlertClose}>Close</Link>
