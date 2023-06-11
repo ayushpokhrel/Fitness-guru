@@ -3,16 +3,16 @@ const mongoose=require('mongoose')
 const gymSchema=new mongoose.Schema({
     name:{
         type:String,
-        required:true
+        // required:true
     },
     discription:{
         type:String,
-        required:true
+        // required:true
     }
     ,
     url:{
         type:String,
-        required:true
+        // required:true
     }
 })
 

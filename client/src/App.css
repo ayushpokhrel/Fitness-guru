@@ -37,7 +37,7 @@ a{
 .bodies{
   display: flex;
   justify-content: space-between;
-  margin-top: 250px;
+  margin-top: 150px;
 }
 .body1{
   display: flex;
@@ -78,7 +78,19 @@ a{
   border-radius: 17px; 
   margin-top: 32px;
 }
-.ggName{
+.containerregister{
+  text-align: center;
+  background-color: aliceblue;
+  opacity: 0.8;
+  justify-content: center;
+  padding: 50px; 
+  height: 60vh;
+  width: 1000px;
+  margin: auto;
+  border-radius: 17px; 
+  margin-top: 32px;
+}
+.fgName{
     position: relative;
     bottom: 80px;
     right: 140px;
@@ -89,6 +101,20 @@ a{
 font-family: 'Mogra', cursive;
 font-family: 'Shantell Sans', cursive;
 font-size: 20px;
+font-weight: bold;
+text-decoration: underline;
+}
+.fgNamereg{
+  position: relative;
+  bottom: 80px;
+  right: 340px;
+  margin-top: 42px;
+  padding: 10px;
+text-transform: uppercase;
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Mogra', cursive;
+font-family: 'Shantell Sans', cursive;
+font-size: 24px;
 font-weight: bold;
 text-decoration: underline;
 }
@@ -126,11 +152,28 @@ input{
   /* border-color: blue; */
   outline-color: blue;
 }
+.frow{
+  float: left;
+}
 
 
 .btn{
   padding: 12px;
   margin-top: 38px;
+  cursor:pointer;
+  width: 250px;
+  border-radius: 12px;
+  border: 3px solid rgb(66, 137, 243);
+  color: white;
+  font-size: 18px;
+  background-color: rgb(111, 244, 91);
+  text-decoration: underline;
+}
+
+.btnreg{
+  padding: 12px;
+  margin-top: 68px;
+  margin-bottom: 100px;
   cursor:pointer;
   width: 250px;
   border-radius: 12px;
