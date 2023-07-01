@@ -1,8 +1,6 @@
 const express=require('express')
 const app=express()
 const bcrypt=require('bcrypt')
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
 require ('./conn/connect')
 const userModel=require('./models/user.model')
 const gymModel=require('./models/gym.model')
@@ -11,7 +9,8 @@ const router=express.Router();
 const cors=require('cors')
 app.use(cors())
 app.use(express.json())
-app.use(cookieParser('your-secret-key'));
+
+
 
 
 
@@ -38,20 +37,22 @@ router.post('/login', (req, res) => {
   userModel.findOne({ email })
     .then(user => {
       if (!user) {
-        return res.status(401).json({ error: 'User not found' });
+        return res.json({  loggedIn: false,msg: 'User not found' });
       }
       bcrypt.compare(password, user.password, (err, result) => {
         if (err) {
           res.send(err + 'occurred');
         }
         if (result) {
-          res.cookie('userr',user.name,{maxAge:10000});
+      
+          console.log(user)
      
-          return res.status(200).json({loggedIn:true, msg: 'Login successful'});
+          return res.status(200).json({loggedIn:true, msg: 'Login successful',username:user.username});
+         
         
         } else {
-          alert('error')
-          return res.status(401).json({ loggedIn:false,msg: 'Invalid credentials' });
+         
+          return res.json({ loggedIn:false,msg: 'Invalid credentials' });
         }
       });
       
@@ -61,18 +62,15 @@ router.post('/login', (req, res) => {
 
 
 router.get('/loggedIn', (req, res) => {
-
-    console.log(req.cookies['userr'] );
-
-    return res.json({ loggedIn: true, username:req.cookies['userr']});
+ 
+    return res.json({ loggedIn: true});
    
   });
 
 
 
   router.get('/logout',(req,res)=>{
-    res.clearCookie('user'); // Clear the 'user' cookie
-    return res.json({ msg: 'Logout successful' });
+    return res.json({  loggedIn:false,msg: 'Logout successful' });
   })
 
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState,useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 const Gymtypes = () => {
     const [data,setData]=useState([])
@@ -15,10 +16,16 @@ console.log(data)
 
 
   return (
+    <div className='gymContainer'>
     <div className='mainbox'>
         {data.map((item,id)=>{
-            return<div className='box'>{item.name}<br/>{item.des}</div>
+            return<div className='box'>{item.name}<br/>{item.des}
+            <Link className='enrollLink'>enroll</Link><br/>
+            </div>
+          
+            
         })}
+        </div>
     </div>
   )
 }

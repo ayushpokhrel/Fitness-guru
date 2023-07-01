@@ -11,10 +11,12 @@ const RegistrationForm = () => {
   const [cpassword, setCpassword] = useState('');
   const [errors, setErrors] = useState({});
   const[msg,setMsg]=useState('')
+  const[temp,setTemp]=useState('')
 
 
 
   const handleSubmit = (e) => {
+    
     errorsCheck()
     e.preventDefault();
 
@@ -29,6 +31,7 @@ const RegistrationForm = () => {
       console.log(response.data);
       setErrors({})
       setMsg('User Registered!!!')
+      window.location.href="/login"
     })
     .catch(error => {
       // Handle any errors

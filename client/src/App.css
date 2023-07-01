@@ -37,34 +37,60 @@ a{
 .bodies{
   display: flex;
   justify-content: space-between;
-  margin-top: 150px;
+  margin-top: 55px;
 }
 .body1{
   display: flex;
-  width: 40%;
-  height: 200px;
+  width: 70%;
+  height: 370px;
+  /* background: url(./images/thirdSlider.jpg)no-repeat center center/cover; */
   background-color: white;
-  opacity: 0.8;
+  /* color: white; */
+  /* opacity: 0.8; */
   align-items: center;
   border-radius: 20px;
   padding: 20px;
+  margin: auto;
+  align-items: center;
+  text-align: center;
 
   /* display: block; */
 }
 .para{
-  
-  color: black;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 70px;
+  font-size: 28px;
+  border-radius: 20px;
+  justify-content: center;
+  margin-top: 80px;
  
 }
 .body2{
-  display: block;
-  width: 40%;
-  height: 200px;
+  height: 80px;
+  position: sticky;
+  bottom:300px;
+  float: right;
   background-color: white;
-  opacity: 0.8;
   border-radius: 20px;
-  padding: 20px;
+  opacity: 0.8;
+  width: 20%;
   text-align: center;
+}
+
+.closebtnhome{
+position: relative;
+bottom: 17px;
+left: 17px;
+font-size: 10px;
+border-radius:13px;
+/* transition: 1.2s; */
+padding: 2px;
+}
+.closebtnhome:hover{
+  background-color: rgb(177, 185, 188);
+  color: black;
 }
 .container{
   text-align: center;
@@ -72,7 +98,7 @@ a{
   opacity: 0.8;
   justify-content: center;
   padding: 50px; 
-  height: 60vh;
+  height: 70vh;
   width: 60vh;
   margin: auto;
   border-radius: 17px; 
@@ -152,6 +178,9 @@ input{
   /* border-color: blue; */
   outline-color: blue;
 }
+.errMsg{
+  color: red;
+}
 .frow{
   float: left;
 }
@@ -169,6 +198,7 @@ input{
   background-color: rgb(111, 244, 91);
   text-decoration: underline;
 }
+
 
 .btnreg{
   padding: 12px;
@@ -188,18 +218,158 @@ input{
   justify-content: space-between;
 }
 
+/*slider css */
+.slider-container {
+  display: flex;
+  overflow: hidden;
+}
+
+.slide {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+.slide:nth-child(1) {
+  background: url(./images/firstSlider.jpg) no-repeat center center/cover;
+}
+.slide:nth-child(2) {
+  background: url(./images/secondSlider.jpg) no-repeat center center/cover;
+}
+.slide:nth-child(3) {
+  background: url(./images/thirdSlider.jpg) no-repeat center center/cover;
+}
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.slider-controls button {
+  margin: 5px 5px;
+  cursor: pointer;
+  /* background-color: black; */
+  background-color: black;
+  color:rgb(180, 180, 226) ;
+    padding: 13px;
+  opacity: 0.7px;
+  transition: 1.4s;
+  /* border: none; */
+  /* position: fixed; */
+}
+.slider-controls button:hover{
+   background-color:white ;
+  color:rgb(180, 180, 226) ;
+  border-radius: 5px;
+}
+
+
 .box{
-height: 300px;
+height: 200px;
 width: 300px;
+border-radius: 13px;
 margin: 30px;
-background-color: black;
+background-color: rgb(40, 235, 118);
 color: white;
 text-align: center;
 display: flex;
+flex-direction: column;
 align-items: center;
 justify-content: center;
 /* float: left; */
 }
+
+
+/* dashboard css */
+.divDash{
+height: 100vh;
+}
+.headerDash{
+  color: black;
+  display: inline;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 15px;
+  position: relative;
+  top: 10px;
+  text-transform: uppercase;
+}
+.logoutDash{
+  display: block;
+  /* margin-top: 8px; */
+  /* margin-left:700px; */
+  margin-top: 150px;
+  padding: 12px;
+  width: 84px;
+  color: white;
+  background-color: rgb(18, 15, 15);
+  border-radius: 12px;
+  /* position: absolute;
+  top:20px; */
+  cursor: pointer;
+  /* left:1000px */
+}
+.wrapperDash{
+    display: flex;
+    /* justify-content: space-between; */
+   
+}
+
+.leftrow{
+border-right:3px dotted rgb(26, 27, 26);
+margin-top: 20px;
+opacity: 0.85;
+width:30%;
+height: 100vh;
+color: black;
+background-color: rgb(141, 166, 188)
+}
+
+.rightrow{
+  border: 3px solid white;
+  width: 70%;
+  margin-top: 20px;
+  background-color: aliceblue;
+  opacity: 0.7;
+}
+.links{
+  text-align: center;
+  margin-top: 20px;
+  background-color: rgb(239, 248, 239);
+  padding: 18px;
+  display: block;
+}
+.linksFirst{
+  text-align: center;
+  margin-top: 10px;
+  background-color: rgb(214, 223, 214);
+  /* padding: 18px; */
+  display: block;
+}
+.enrollLink{
+  display: flex;
+  color: white;
+  background-color: darkblue;
+  height: 10px;
+  margin-top: 60px;
+  border-radius: 12px;
+  align-items: center;
+  transition: 1.3s;
+}
+.enrollLink:hover{
+  background-color: blue;
+  height: 13px;
+}
+
+.profilename{
+  font-size: 34px;
+  text-transform: uppercase;
+  color: green;
+  margin: auto;
+  text-align: center;
+  
+}
+
+
 
 /* custom css ends here */
 
