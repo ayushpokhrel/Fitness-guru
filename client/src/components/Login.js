@@ -2,15 +2,13 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [Isloggedin, setIsloggedin] = useState(false);
   const [errMsg, setErrMsg] = useState('');
-  const navigate=useNavigate()
 
   const send = (e) => {
     e.preventDefault();
@@ -26,12 +24,31 @@ const Login = () => {
         if (res.data.loggedIn) {
           // setIsloggedin(true);
           setErrMsg('')
-          // navigate('/dashboard')
-          window.location.href="/dashboard"
-          const userDetails=(res.data.username);
+          if(res.data.username==="Admin"){
+          const userDetails={
+            name:res.data.username,
+            email:res.data.email,
+
+          }
           console.log(userDetails)
-          const expirationTime = new Date(new Date().getTime() + 1 * 60 * 1000);
-        Cookies.set('user', userDetails, { expires: expirationTime }); 
+          const expirationTime = new Date(new Date().getTime() + 10 * 60 * 1000);
+          Cookies.set('user', JSON.stringify(userDetails) , { expires: expirationTime }); 
+          window.location.href="/admindash"         
+          }
+          // navigate('/dashboard')
+          if(res.data.username!=="Admin"){
+            window.location.href="/dashboard"
+            const userDetails={
+              fullname:res.data.fullname,
+              name:res.data.username,
+              email:res.data.email,
+              phone:res.data.phone,
+              file:res.data.file
+            }
+          const expirationTime = new Date(new Date().getTime() + 10 * 60 * 1000);
+        Cookies.set('user', JSON.stringify(userDetails), { expires: expirationTime }); 
+          }
+          
         } else {
           // setIsloggedin(false);
           setErrMsg(res.data.msg);
@@ -43,6 +60,7 @@ const Login = () => {
   };
 
   return (
+    
     <div className="container">
       <p className="fgName">Fitness Guru</p>
       <h3 className="title">Login</h3>

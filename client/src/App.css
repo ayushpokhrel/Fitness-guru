@@ -8,7 +8,23 @@
   pointer-events: none;
 }
 body{
-  background: url('./images/home1jpg.jpg') no-repeat center center/cover ;
+  width: 190vh;
+  margin: auto;
+  background-color: rgb(44, 161, 220);
+}
+.homemaindiv::before{
+  /* background: url('./images/home1jpg.jpg') no-repeat center center/cover ; */
+  background-color: rgb(44, 161, 220);
+  content: '';
+  position: absolute;
+  top:0;
+  left: 3%;
+  /* width: 100%; */
+  width: 94%;
+  margin: auto;
+  height: 150%;
+  z-index: -1;
+  opacity: 0.7;
   /* opacity: 0.8; */
 }
 .header{
@@ -18,6 +34,7 @@ body{
   height: 50px;
   align-items: center;
   padding-left: 20px;
+  border: 5px solid rgb(17, 198, 159);
 }
 .logoname{
   text-transform: uppercase;
@@ -37,14 +54,14 @@ a{
 .bodies{
   display: flex;
   justify-content: space-between;
-  margin-top: 55px;
+  margin-top: 125px;
 }
 .body1{
   display: flex;
   width: 70%;
   height: 370px;
   /* background: url(./images/thirdSlider.jpg)no-repeat center center/cover; */
-  background-color: white;
+  background-color: rgb(155, 75, 160);
   /* color: white; */
   /* opacity: 0.8; */
   align-items: center;
@@ -74,7 +91,6 @@ a{
   float: right;
   background-color: white;
   border-radius: 20px;
-  opacity: 0.8;
   width: 20%;
   text-align: center;
 }
@@ -99,7 +115,7 @@ padding: 2px;
   justify-content: center;
   padding: 50px; 
   height: 70vh;
-  width: 60vh;
+  width: 65vh;
   margin: auto;
   border-radius: 17px; 
   margin-top: 32px;
@@ -108,10 +124,9 @@ padding: 2px;
   text-align: center;
   background-color: aliceblue;
   opacity: 0.8;
-  justify-content: center;
   padding: 50px; 
-  height: 60vh;
-  width: 1000px;
+  height: 100vh;
+  width: 700px;
   margin: auto;
   border-radius: 17px; 
   margin-top: 32px;
@@ -130,17 +145,19 @@ font-size: 20px;
 font-weight: bold;
 text-decoration: underline;
 }
+
 .fgNamereg{
   position: relative;
-  bottom: 80px;
-  right: 340px;
+  bottom: 100px;
+  left: 290px;
   margin-top: 42px;
+  margin-bottom: 42px;
   padding: 10px;
 text-transform: uppercase;
 font-family: 'Bebas Neue', sans-serif;
 font-family: 'Mogra', cursive;
 font-family: 'Shantell Sans', cursive;
-font-size: 24px;
+font-size: 20px;
 font-weight: bold;
 text-decoration: underline;
 }
@@ -181,9 +198,13 @@ input{
 .errMsg{
   color: red;
 }
-.frow{
-  float: left;
-}
+  .frow{
+    float: left;
+    margin-left: 50px;
+  }
+ .phonenumber{
+  display: inline-block;
+ }
 
 
 .btn{
@@ -202,8 +223,8 @@ input{
 
 .btnreg{
   padding: 12px;
-  margin-top: 68px;
-  margin-bottom: 100px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   cursor:pointer;
   width: 250px;
   border-radius: 12px;
@@ -265,7 +286,7 @@ input{
 
 
 .box{
-height: 200px;
+height: 200px !important;
 width: 300px;
 border-radius: 13px;
 margin: 30px;
@@ -345,20 +366,26 @@ background-color: rgb(141, 166, 188)
   /* padding: 18px; */
   display: block;
 }
-.enrollLink{
+/* .box{
   display: flex;
   color: white;
-  background-color: darkblue;
-  height: 10px;
-  margin-top: 60px;
+background: url('../../server/uploads/1688803074097-yoga.jpg');
+  height: 130px;
+    margin-top: 60px;
   border-radius: 12px;
   align-items: center;
   transition: 1.3s;
-}
-.enrollLink:hover{
-  background-color: blue;
-  height: 13px;
-}
+} */
+.box:hover{
+  background-color: rgb(20, 20, 22);
+  height: 150px;
+  /* opacity:0.7; */
+  font-size: 30px;
+  color: white;
+   .boxinfo{display:block;}
+  
+} 
+
 
 .profilename{
   font-size: 34px;
@@ -368,8 +395,244 @@ background-color: rgb(141, 166, 188)
   text-align: center;
   
 }
+.boxinfo{display: none;}
+.main{
+  display: flex;
+  justify-content: space-between;
+}
+.boxes{
+  display: flex;
+  margin-top: 30px;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+  opacity: 0.7;
+  height: 100px;
+  width: 300px;
+}
 
 
+/*About us Css begins here*/
+
+.aboutusMainDiv{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  height: 100vh;
+}
+.homemaindiv{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  height: 100vh;
+}
+.aboutusBodyDiv{
+  font-size: 18px;
+  width: 190vh;
+}
+.homeBodyDiv{
+  font-size: 18px;
+  width: 190vh;
+}
+
+/* .aboutusTitle{
+  text-align: center;
+} */
+.topdiv{
+  text-align: center;
+  /* padding: 5px; */
+  color: white;
+}
+.topdiv::before{
+  background-color: blue;
+  content:"";
+  position: absolute;
+  width: 94%;
+  height: 41.8%;
+  top: 0;
+  left: 3%;
+  z-index: -1;
+  opacity: 0.5;
+}
+.ourfoundingAbout {
+  text-align: center;
+  /* color: white; */
+  position: relative;
+  top: -5px;
+}
+
+.wrapperAbout{
+  margin-top: 105px;
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: space-between;
+  /* margin: auto; */
+}
+.secdiv::after{
+  background-color: rgb(44, 161, 220);
+  content:"";
+  position: absolute;
+  /* width: 92.67%; */
+  width: 94%;
+  height: 215%;
+  top: 235px;
+  left: 3%;
+  z-index: -1;
+  opacity: 0.6;
+}
+.secdiv p{
+text-align: center;
+}
+.aboutusleft{
+  /* border: 2px solid red; */
+  width: 30%;
+  margin-left: 50px;
+  padding: 20px;
+  height: 180px;
+  border-radius: 17px;
+  background: url('./images/home1jpg.jpg')no-repeat center center/cover;
+}
+.mission{
+  /* border: 2px solid red; */
+  width: 30%;
+  margin-left: 50px;
+  padding: 20px;
+  height: 180px;
+  border-radius: 17px;
+  background: url('./images/mission.png')no-repeat center center/cover;
+}
+.features{
+  /* border: 2px solid red; */
+  width: 30%;
+  margin-left: 50px;
+  padding: 20px;
+  height: 180px;
+  border-radius: 17px;
+  background: url('./images/features.png')no-repeat center center/cover;
+}
+.aboutusright{
+  width: 45%;  
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 14px;
+  margin-right: 10px;
+}
+.aboutusrightlast{
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 14px;
+}
+
+/*about us css starts*/
+.contactmaindiv{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  height: 100vh;
+}
+.contactbodydiv{
+  font-size: 18px;
+  width: 190vh;
+}
+.contactmaindiv::before{
+  /* background: url('./images/home1jpg.jpg') no-repeat center center/cover ; */
+  background-color: rgb(44, 161, 220);
+  content: '';
+  position: absolute;
+  top:0;
+  left: 3%;
+  /* width: 100%; */
+  width: 94%;
+  margin: auto;
+  height: 150%;
+  z-index: -1;
+  opacity: 0.7;
+  /* opacity: 0.8; */
+}
+
+/*user Profile Style*/
+
+.profilemain{
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+border: 2px solid gray;
+width: 40%;
+height: 350px;
+margin: auto;
+margin-top: 50px;
+z-index: -1;
+transition: 0.7s;
+border-radius: 15px;
+}
+
+.profilemain:hover{
+background-color: white;
+padding: 30px;
+.userdetails{
+background-color: rgb(206, 203, 240);
+padding: 35px;
+/* opacity: 0.7; */
+font-size: 19px;
+}
+}
+.userdetails{
+  background-color: white;
+  position: relative;
+  top: 100px;
+  /* opacity: 0.8; */
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.pp img{
+  border-radius: 190px;
+}
+
+/*User profile css ends*/
+
+/*Bmi calc style */
+.bmiHeader{
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;  
+}
+.form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 50%;
+  margin: auto;
+  border: 2px solid green;
+  margin-top: 22px;
+}
+.form-container input{
+  margin: 12px;
+}
+.form-container .calculatebtn{
+  display: inline-block;
+  width: 50%;
+  margin-top: 20px;
+  padding: 12px;
+  transition: 0.4s;
+}
+.form-container .calculatebtn:hover{
+  /* background-color: rgb(234, 201, 151); */
+  background-color: white;
+}
+
+.resultcalc{
+  text-align: center;
+  background-color: green;
+  width: 45%;
+  margin: auto;
+  margin-top: 25px;
+  color: white;
+  padding: 20px;
+
+}
 
 /* custom css ends here */
 

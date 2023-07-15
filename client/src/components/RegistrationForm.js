@@ -5,13 +5,14 @@ import { divStyle,textStyle,h1style } from './Styles';
 
 const RegistrationForm = () => {
   const [username, setUsername] = useState('');
+  const [fname,setFname]=useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setCpassword] = useState('');
+  const[file,setFile]=useState(null);
   const [errors, setErrors] = useState({});
   const[msg,setMsg]=useState('')
-  const[temp,setTemp]=useState('')
 
 
 
@@ -21,24 +22,39 @@ const RegistrationForm = () => {
     e.preventDefault();
 
   };
+  const handleFileChange=(e)=>{
+    setFile(e.target.files[0]);
+  }
   const errorsCheck=()=>{
     const validationErrors=validateForm();
 
     if (Object.keys(validationErrors).length === 0) {   
-      axios.post('http://localhost:3005/register', {username,email,phone,password})
+      const formData=new FormData();
+      formData.append('file',file);
+      formData.append('fname',fname);
+      formData.append('username',username);
+      formData.append('email',email);
+      formData.append('phone',phone);
+      formData.append('password',password);
+      axios.post('http://localhost:3005/register', formData)
     .then(response => {
-      // Handle the response data
-      console.log(response.data);
+
+      // console.log(response.data);
       setErrors({})
-      setMsg('User Registered!!!')
+      setMsg(response.data.msg)
+      if(response.data.msg=="saved successfully"){
       window.location.href="/login"
+      }
+
     })
     .catch(error => {
-      // Handle any errors
+
       console.error('Error:', error);
+
     });
-      // Form submission logic goes here
-      console.log('Form submitted:');}
+      console.log('Form submitted:');
+    }
+
       else{
         setErrors(validationErrors);
       }
@@ -48,6 +64,9 @@ const RegistrationForm = () => {
     const errors = {};
     if (!username.trim()) {
       errors.username = 'Username is required';
+    }
+    if(!fname.trim()){
+      errors.fname='fullname is required';
     }
     if (!email.trim()) {
       errors.email = 'Email is required';
@@ -71,13 +90,11 @@ const RegistrationForm = () => {
   };
 
   const isValidEmail = (email) => {
-    // Basic email validation (change as needed)
     const emailRegex = /^\S+@\S+\.\S+$/;
     return emailRegex.test(email);
   };
 
   const isValidPhone = (phone) => {
-    // Basic phone number validation (change as needed)
     const phoneRegex = /^\d{10}$/;
     return phoneRegex.test(phone);
   };
@@ -87,6 +104,13 @@ const RegistrationForm = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <div className='frow'>
+        <p className='fname'> Fullname:</p>
+        <input
+          type="text"
+          name="fname"
+          value={fname}
+          onChange={(e) => setFname(e.target.value)}
+        />
       <p className='username'> Username:</p>
         <input
           type="text"
@@ -107,8 +131,8 @@ const RegistrationForm = () => {
         {errors.email && <p>{errors.email}</p>}
       </div>
       </div>
-      <div className='frow'>
-      <p className='phonenumber'> Phone Number:</p>
+      <div className='srow'>
+      <p className='phonenumber'> Phone Number:</p><br/>
         <input
           type="tel"
           name="phone"
@@ -126,8 +150,7 @@ const RegistrationForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         {errors.password && <p>{errors.password}</p>}
-        </div>
-      <div className='frow'>
+        
       <p className='password'>Confirm Password:</p>
         <input
           type="password"
@@ -136,11 +159,14 @@ const RegistrationForm = () => {
           onChange={(e) => setCpassword(e.target.value)}
         />
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-      </div>
+        </div>
+        <div className='trow'>
+      <input type="file" onChange={handleFileChange} />
       </div><br/>
+      </div> {msg}<br/>
       <button className='btnreg' type="submit">Register</button><br/>
       
-      {msg}
+     
     </form>
     <p>Already have an account? <Link to="/login">Login</Link></p>
 

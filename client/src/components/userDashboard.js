@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Login from './Login';
-import RegistrationForm from './RegistrationForm'
 import Gymtypes from './Gymtypes'
 import Cookies from 'js-cookie';
-import { useNavigate, Link } from 'react-router-dom';
 import Profile from './Profile';
 import Progress from './Progress';
+import BMI from './BMI';
 
 
 const UserDashboard = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
-  // const [cookieAlert,setCookieAlert]=useState('')
   const[showAlert,setShowAlert]=useState(true)
-  const [content, setContent] = useState('');
-  const [visibility,setVisibility]=useState('visible');
-
+  const [content, setContent] = useState(<Profile/>);
+  const [loggedIn,setLoggedIn]=useState(false);
+  const visibility="visible";
   const handleLinkClick = (page) => {
-    // Set the content based on the clicked link
     setContent(page);
   };
+
   useEffect(()=>{
       setTimeout(()=>{
         setShowAlert(false);
-        // setVisibility('visible')
       },10000)
   })
 
@@ -34,11 +31,10 @@ const UserDashboard = () => {
       .then((response) => {
         // console.log(response.username)
         if (response.data.loggedIn) {
-         const userinfo= Cookies.get('user');
+         const userinfo= JSON.parse(Cookies.get('user'));
         //  setUsercookie(userinfo);
-          setUsername(userinfo);
+          setUsername(userinfo.name);
           setLoggedIn(true);
-        // console.log(response)
         } 
         else{
           setLoggedIn(false)
@@ -65,10 +61,10 @@ const UserDashboard = () => {
           <Link className='linksFirst'   onClick={() => handleLinkClick(<Profile/>)}>Profile</Link>
           <Link className='links' to ="" onClick={() => handleLinkClick(<Progress/>)}>Progress</Link>
           <Link className='links' to ="" onClick={() => handleLinkClick(<Gymtypes/>)}>Programs</Link>
-          <Link className='links' to="" onClick={() => handleLinkClick('features')}>Features</Link>
+          <Link className='links' to="" onClick={() => handleLinkClick(<BMI/>)}>BMI Calculator</Link>
           <button className='logoutDash' onClick={handleLogout}>Logout</button>
           </div>
-          {/* Your user dashboard content */}
+
           <div className='rightrow'>
          {content}
         </div>

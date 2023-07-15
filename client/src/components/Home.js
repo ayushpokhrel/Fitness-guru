@@ -63,15 +63,13 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [showAlert, setShowAlert] = useState(false);  const [isSlideVisible, setIsSlideVisible] = useState(false);
+  const [showAlert, setShowAlert] = useState(false); 
 
 
   const handleAlertClose = () => {
     setShowAlert(false);
   };
-  const url=(link)=>{
-return url(link)
-  }
+
 
 
 
@@ -79,11 +77,9 @@ return url(link)
     setTimeout(() => {
              setShowAlert(true);
            }, 5000);
-    const sliderContainer = document.querySelector('.body1');
     const slides = document.querySelectorAll('.slide');
     const prevButton = document.querySelector('.slider-prev');
     const nextButton = document.querySelector('.slider-next');
-    const slideWidth = slides[0].offsetWidth;
 
 
     const slideNext = () => {
@@ -105,7 +101,7 @@ return url(link)
   }, []);
 
   return (
-    <div>
+    <div className='homemaindiv'>
       <header className="header">
         <div className="logo">
           <p className="logoname">fitness guru</p>
@@ -113,12 +109,17 @@ return url(link)
         <div className="nav">
           <ul className="nav">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/">About Us</Link></li>
-            <li><Link to="/">Reviews</Link></li>
-            <li><Link to="/">Contact Us</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/reviews">Reviews</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
       </header>
+    <div className='homeBodyDiv'>
+      <div className='topdiv'>
+        <h1 className='aboutusTitle'>Fitness Guru</h1>
+        <p className='aboutusShortmsg'>Take care of your body. It's the only place you have to live ✌️</p>
+        </div>
       <div className="bodies">
         <div className="body1">
           
@@ -132,7 +133,7 @@ return url(link)
   style={{ display: currentSlide === 0 ? 'block' : 'none',height:"390px", }}
             >
            <p className="para">Welcome to our Fitness guru webapp!<br />
-            Whether you're a fitness enthusiast or just starting out, we've got you covered.  </p>
+            Whether you're a fitness enthusiast or just starting out, we've got you covered  </p>
             </div>
             <div
               className="slide  "
@@ -152,6 +153,7 @@ return url(link)
             <button className="slider-next">›</button>
           </div>
         </div>
+      </div>
       </div>
 
       {
