@@ -31,11 +31,14 @@ useEffect(()=>{
           }
           console.log(backgroundImageStyle.background);
             return(
-            <Link
+            <div
             className='box' style={backgroundImageStyle}>{item.name} <br/><br/>{item.des}
             
-            <div className='boxinfo'>{item.name+' '+item.description}</div>
-            </Link>)
+            <div className='boxinfo'>{item.description}</div>
+            <Link className='linksbox' to="/login">Beginner</Link>
+            <Link  className="linksbox" to="/login">Intermediate</Link>
+            <Link className='linksbox' to="/login">Advanced</Link>
+            </div>)
           
             
         })}

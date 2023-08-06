@@ -5,6 +5,7 @@ const multer=require('multer')
 require ('./conn/connect')
 const userModel=require('./models/user.model')
 const gymModel=require('./models/gym.model')
+const HealthData = require('./models/healthData.model.js');
 const port=3005;
 const router=express.Router();
 const cors=require('cors')
@@ -70,7 +71,7 @@ router.post('/login', (req, res) => {
       
           console.log(user)
      
-          return res.status(200).json({loggedIn:true, msg: 'Login successful',username:user.username,fullname:user.fname,email:user.email,phone:user.phone,file:user.file});
+          return res.status(200).json({loggedIn:true, msg: 'Login successful',username:user.username,fullname:user.fname,email:user.email,phone:user.phone,file:user.file,id:user._id});
          
         
         } else {
@@ -131,6 +132,55 @@ router.get('/gymtype',async (req,res)=>{
   }
   
 })
+
+
+
+
+router.post('/saveHealthData', async (req, res) => {
+  try {
+    const { userId, age, weight, heightFeet, heightInches, bmi, bmr, programLevel,gender } = req.body;
+
+    // Check if the user exists
+    const user = await userModel.findById(userId);
+    if (!user) {
+      return res.status(400).json({ msg: 'User not found' });
+    }
+
+    // Save health data using the HealthData model
+    const healthData = new HealthData({
+      user: userId,
+      age,
+      weight,
+      heightFeet,
+      heightInches,
+      bmi,
+      bmr,
+      programLevel,
+      gender
+    });
+    const savedHealthData = await healthData.save();
+
+    res.json({ msg: 'Health data saved successfully', healthData: savedHealthData });
+  } catch (error) {
+    console.error('Error saving health data:', error);
+    res.status(500).json({ msg: 'Server error' });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.use('/profiles', express.static('profiles'));
 
 router.get('/users',async(req,res)=>{

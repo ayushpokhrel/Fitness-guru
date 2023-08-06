@@ -286,13 +286,14 @@ input{
 
 
 .box{
-height: 200px !important;
-width: 300px;
+height: 200px ;
+width: 160px;
 border-radius: 13px;
 margin: 30px;
 background-color: rgb(40, 235, 118);
 color: white;
 text-align: center;
+font-size: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -378,13 +379,17 @@ background: url('../../server/uploads/1688803074097-yoga.jpg');
 } */
 .box:hover{
   background-color: rgb(20, 20, 22);
-  height: 150px;
+  height: 260px;
   /* opacity:0.7; */
-  font-size: 30px;
+  font-size: 10px;
   color: white;
    .boxinfo{display:block;}
   
 } 
+.linksbox{
+  color: white;
+  border: 1px solid white;
+}
 
 
 .profilename{
@@ -572,6 +577,7 @@ padding: 30px;
 .userdetails{
 background-color: rgb(206, 203, 240);
 padding: 35px;
+display: block;
 /* opacity: 0.7; */
 font-size: 19px;
 }
@@ -580,6 +586,7 @@ font-size: 19px;
   background-color: white;
   position: relative;
   top: 100px;
+  display: none;
   /* opacity: 0.8; */
   padding: 30px;
   border-radius: 12px;
@@ -625,13 +632,15 @@ font-size: 19px;
 
 .resultcalc{
   text-align: center;
-  background-color: green;
   width: 45%;
   margin: auto;
   margin-top: 25px;
   color: white;
   padding: 20px;
 
+}
+.healthdiv{
+  text-align: center;
 }
 
 /* custom css ends here */

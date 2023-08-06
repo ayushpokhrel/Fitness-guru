@@ -39,7 +39,9 @@ const Login = () => {
           if(res.data.username!=="Admin"){
             window.location.href="/dashboard"
             const userDetails={
+              id:res.data.id,
               fullname:res.data.fullname,
+              username:res.data.username,
               name:res.data.username,
               email:res.data.email,
               phone:res.data.phone,
