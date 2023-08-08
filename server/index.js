@@ -6,6 +6,7 @@ require ('./conn/connect')
 const userModel=require('./models/user.model')
 const gymModel=require('./models/gym.model')
 const HealthData = require('./models/healthData.model.js');
+const GymContent=require('./models/GymContent.model')
 const port=3005;
 const router=express.Router();
 const cors=require('cors')
@@ -69,7 +70,7 @@ router.post('/login', (req, res) => {
         }
         if (result) {
       
-          console.log(user)
+          // console.log(user)
      
           return res.status(200).json({loggedIn:true, msg: 'Login successful',username:user.username,fullname:user.fname,email:user.email,phone:user.phone,file:user.file,id:user._id});
          
@@ -166,6 +167,65 @@ router.post('/saveHealthData', async (req, res) => {
     res.status(500).json({ msg: 'Server error' });
   }
 });
+
+//previous or recent healthData
+
+router.get('/getPreviousHealthData/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const allHealthData = await HealthData.find({ user: userId }).sort({ createdAt: -1 });
+
+    if (allHealthData.length < 2) {
+      return res.status(404).json({ msg: 'Previous health data not found' });
+    }
+
+    const previousHealthData = allHealthData[1]; // Second entry in the sorted array is the previous data
+
+    res.json(previousHealthData);
+  } catch (error) {
+    console.error('Error fetching previous health data:', error);
+    res.status(500).json({ msg: 'Server error' });
+  }
+});
+
+router.get('/getRecentHealthData/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const recentHealthData = await HealthData.find({ user: userId })
+      .sort({ createdAt: -1 }) // Sort by createdAt in descending order to get the latest entry
+      .limit(1) // Limit to one entry to get the most recent entry
+      .exec();
+
+    if (!recentHealthData) {
+      return res.status(404).json({ msg: 'Recent health data not found' });
+    }
+
+    res.json(recentHealthData[0]); // Return the first (and only) entry as recentHealthData
+  } catch (error) {
+    console.error('Error fetching recent health data:', error);
+    res.status(500).json({ msg: 'Server error' });
+  }
+});
+
+//gymtypes level finallllllll
+
+router.get('/content', (req, res) => {
+  const { gymType, level } = req.query;
+
+  GymContent.findOne({ gymType, level })
+    .then(data => {
+      if (data) {
+        res.json(data);
+      } else {
+        res.status(404).json({ error: 'Content not found' });
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+    });
+});
+
 
 
 

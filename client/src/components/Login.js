@@ -19,7 +19,7 @@ const Login = () => {
     axios
       .post('http://localhost:3005/login', { email, password })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
 
         if (res.data.loggedIn) {
           // setIsloggedin(true);
@@ -30,7 +30,7 @@ const Login = () => {
             email:res.data.email,
 
           }
-          console.log(userDetails)
+          // console.log(userDetails)
           const expirationTime = new Date(new Date().getTime() + 10 * 60 * 1000);
           Cookies.set('user', JSON.stringify(userDetails) , { expires: expirationTime }); 
           window.location.href="/admindash"         

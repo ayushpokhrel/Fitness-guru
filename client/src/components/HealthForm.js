@@ -82,17 +82,19 @@ const HealthForm = () => {
   return (
     <div className='healthdiv'>
       <h2>Health Data Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Age:</label><br/>
+
+    <div className='healthWrapper'>
+      <form className='formhealth' onSubmit={handleSubmit}>
+        <label>Age:    </label>
         <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
         <br />
-        <label>Gender:</label><br/>
+        <label>Gender:</label>
         <select value={gender} onChange={(e) => setGender(e.target.value)}>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select><br/>
-        <label>Weight (in kg):</label><br/>
+        <label>Weight (in kg):</label>
         <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)} />
         <br />
         <label>Height (in feet and inches):</label><br/>
@@ -118,6 +120,7 @@ const HealthForm = () => {
         <p>Program Level: {programLevel}</p>
         <p>Recommendation: {recommendation}</p>
       </div>
+    </div>
     </div>
   );
 };

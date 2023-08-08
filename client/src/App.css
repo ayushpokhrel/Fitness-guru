@@ -286,7 +286,7 @@ input{
 
 
 .box{
-height: 200px ;
+height: 250px ;
 width: 160px;
 border-radius: 13px;
 margin: 30px;
@@ -319,7 +319,7 @@ height: 100vh;
   display: block;
   /* margin-top: 8px; */
   /* margin-left:700px; */
-  margin-top: 150px;
+  margin-top: 120px;
   padding: 12px;
   width: 84px;
   color: white;
@@ -529,7 +529,7 @@ text-align: center;
   border-radius: 14px;
 }
 
-/*about us css starts*/
+/*about us css ends*/
 .contactmaindiv{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   height: 100vh;
@@ -639,9 +639,101 @@ font-size: 19px;
   padding: 20px;
 
 }
-.healthdiv{
-  text-align: center;
+.healthWrapper{
+   display: flex; 
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+   border: 2px solid green;
+   margin: 80%;
+
 }
+.formhealth{
+  position: absolute;
+  top: 0;
+  left: 0.2;
+}
+.healthWrapper label{
+  padding-right: 60px;
+  /* display: flex; */
+}
+.healthWrapper label:nth-of-type(2){
+  padding-right: 60px;
+  color: green;
+}
+.healthWrapper select{
+  width: 260px;
+  height: 40px;
+  margin: 10px;
+  outline: 1.5px solid black;
+}
+.healthWrapper input{
+  margin: 10px;
+}
+
+/*progress page css */
+.progressMaindiv{
+  background-color: #98b6e6;
+  height: 90vh;
+  padding-top: 50px;
+}
+.progressWrapper{
+  display: flex;
+  justify-content: space-around;
+  /* background-color: rgb(201, 210, 189); */
+}
+.progressHeader{
+text-align: center;
+margin-top: -50px;
+margin-bottom: 40px;
+background-color: blue;
+font-family: Georgia, 'Times New Roman', Times, serif;
+padding: 30px;
+font-style: italic;
+color: white;
+}
+.upr{
+  text-align: center;
+  font-style: italic;
+  color: black;
+  background-color: greenyellow;
+  text-decoration: dotted;
+}
+
+.progressFirstdiv{
+border: 2px solid white;
+border-radius: 10px;
+padding: 30px;
+background-color: rgb(218, 210, 210);
+}
+.vs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  font-style: italic;
+}
+.progressSeconddiv{
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: rgb(226, 220, 220);
+  }
+  .progresssuggestion{
+    text-align: center;
+    margin-top:120px ;
+    font-style: italic;
+    background-color: white;
+  }
+  .progressFirstdiv:hover {
+    background-color: white;
+    height: 150px;
+  }
+  .progressSeconddiv:hover{
+    background-color: white;
+    height: 150px;
+  }
 
 /* custom css ends here */
 
