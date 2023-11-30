@@ -118,7 +118,7 @@ const UserDashboard = () => {
     axios
       .get('http://localhost:3005/loggedIn', {
         headers: {
-          'user-id': JSON.parse(Cookies.get('user'))._id, // Assuming user ID is stored in the cookie
+          'user-id': JSON.parse(Cookies.get('user'))._id, 
         },
       })
       .then((response) => {

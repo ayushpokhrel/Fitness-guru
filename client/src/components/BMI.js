@@ -23,7 +23,7 @@ const [color,setColor]=useState('')
         setStatus('your BMI is above average')
         setColor('red')
        }
-       setResult('Your Body Mass Index (BMI) is: '+bmi.toFixed(2))
+       setResult('Your Body Mass Index (BMI) is: '+ bmi.toFixed(2))
        setDisplay('block')
     }
 

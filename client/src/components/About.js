@@ -16,7 +16,7 @@ const About = () => {
     setTimeout(() => {
              setShowAlert(true);
            }, 5000);
-          })
+          },[])
   return (
     <div className='aboutusMainDiv'>
     <header className="header">

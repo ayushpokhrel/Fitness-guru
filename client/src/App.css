@@ -293,6 +293,7 @@ margin: 30px;
 background-color: rgb(40, 235, 118);
 color: white;
 text-align: center;
+text-decoration: underline;
 font-size: 10px;
 display: flex;
 flex-direction: column;
@@ -383,12 +384,23 @@ background: url('../../server/uploads/1688803074097-yoga.jpg');
   /* opacity:0.7; */
   font-size: 10px;
   color: white;
-   .boxinfo{display:block;}
+   .boxinfo{display:block;
+  transition: 0.7s;}
   
 } 
 .linksbox{
-  color: white;
+  padding: 8px;
+  background-color: white;
+  color: blue;
+  margin: 8px;
+  font-size: 11px;
   border: 1px solid white;
+}
+.linksbox:hover{
+  padding: 12px;
+  transition: 0.7s ;
+  border-radius: 12px;
+  font-size: 12px;
 }
 
 
@@ -446,6 +458,7 @@ background: url('../../server/uploads/1688803074097-yoga.jpg');
   text-align: center;
   /* padding: 5px; */
   color: white;
+  
 }
 .topdiv::before{
   background-color: blue;
@@ -532,7 +545,7 @@ text-align: center;
 /*about us css ends*/
 .contactmaindiv{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  height: 100vh;
+  height: 20vh;
 }
 .contactbodydiv{
   font-size: 18px;
@@ -552,6 +565,24 @@ text-align: center;
   z-index: -1;
   opacity: 0.7;
   /* opacity: 0.8; */
+}
+.contactusbodysection{
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+  /* margin-bottom: 200px; */
+}
+.contactsidetexts{
+  text-align: left;
+  margin-left: 20px;
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif  ;
+  color: greenyellow;
+  text-decoration: dotted;
+  font-style: italic;
+}
+.contactsociallinks{
+  margin-top: 40px;
 }
 
 /*user Profile Style*/
@@ -639,25 +670,25 @@ font-size: 19px;
   padding: 20px;
 
 }
-.healthWrapper{
+/* .healthWrapper{
    display: flex; 
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   /* text-align: center; */
-   border: 2px solid green;
+   /* border: 2px solid green;
    margin: 80%;
 
-}
-.formhealth{
+} */
+/* .formhealth{
   position: absolute;
   top: 0;
   left: 0.2;
 }
 .healthWrapper label{
-  padding-right: 60px;
-  /* display: flex; */
-}
-.healthWrapper label:nth-of-type(2){
+  padding-right: 60px; */
+  /* display: flex;
+} */
+/* .healthWrapper label:nth-of-type(2){
   padding-right: 60px;
   color: green;
 }
@@ -669,7 +700,7 @@ font-size: 19px;
 }
 .healthWrapper input{
   margin: 10px;
-}
+} */
 
 /*progress page css */
 .progressMaindiv{

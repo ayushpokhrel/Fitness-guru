@@ -4,7 +4,7 @@ const gymContentSchema = new mongoose.Schema({
   gymType: String,
   level: String,
   steps: [{
-    stepNumber: Number,
+    // stepNumber: Number,
     description: String
   }],
 });

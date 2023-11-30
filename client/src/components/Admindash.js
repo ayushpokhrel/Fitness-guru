@@ -56,7 +56,7 @@ const Admin = () => {
 
   return (
     <div className="divDash">
-      {username ? (
+      {username==="Admin" ? (
         <div className='wrapperDash'>
           <div className='leftrow'>
           <h1 className="headerDash" style={{marginButtom:'20px',textAlign:"center"}}>{username} Dashboard </h1>

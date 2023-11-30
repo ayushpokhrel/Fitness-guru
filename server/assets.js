@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost:27017/FitnessGuru', {
   useUnifiedTopology: true,
 });
 
-const dummyData = [
+const fitnessData = [
     {
       gymType: 'Yoga',
       level: 'beginner',
@@ -93,7 +93,7 @@ const dummyData = [
   ];
   
   // Insert the dummy data into the database
-  GymContent.insertMany(dummyData)
+  GymContent.insertMany(fitnessData)
     .then(() => {
       console.log('Dummy data inserted successfully');
       mongoose.connection.close();

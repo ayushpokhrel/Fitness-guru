@@ -54,7 +54,7 @@ router.post('/register',uploadpp.single('file'),(req,res)=>{
 
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
-  if(email=="admin@gmail.com"&&password=="123"){
+  if(email=="admin@gmail.com"&&password=="admin123"){
    console.log("Admin")
 
    return res.json({loggedIn:true,username:"Admin",email});
@@ -118,6 +118,7 @@ router.post('/gymtype',upload.single('file'), async(req,res)=>{
   const filePath = file ? file.path : '';
   gymModel({name,description,file:filePath}).save().then((data)=>{console.log(`saved ${data}`)})
   res.send('saved')
+
 })
 
 router.get('/gymtype',async (req,res)=>{
