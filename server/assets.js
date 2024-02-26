@@ -89,10 +89,10 @@ const fitnessData = [
         { stepNumber: 3, description: 'Monitor and adjust diet for optimal results' },
       ],
     },
-    // Add more entries for different types and levels...
+    //other entries
   ];
   
-  // Insert the dummy data into the database
+  // inserting/saving
   GymContent.insertMany(fitnessData)
     .then(() => {
       console.log('Dummy data inserted successfully');

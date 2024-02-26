@@ -45,6 +45,9 @@ const RegistrationForm = () => {
       if(response.data.msg=="saved successfully"){
       window.location.href="/login"
       }
+      // else if(response.data.msg=="user already exists"){
+      //   setMsg(response.data.msg)
+      // }
 
     })
     .catch(error => {
