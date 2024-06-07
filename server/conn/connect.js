@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const url='mongodb://localhost:27017/FitnessGuru'
+const url='mongodb://127.0.0.1:27017/FitnessGuru';
 mongoose.connect(url).then(() => {
 console.log('MongoDB connected to the server')  })
   .catch((error) => {
@@ -7,6 +7,23 @@ console.log('MongoDB connected to the server')  })
   });
 
   const GymContent=require('../models/GymContent.model')
+  const GymModel=require('../models/gym.model')
+
+  const gymModels = [
+    { name: 'Yoga', description: 'Yoga exercises' },
+    { name: 'Overall Workout', description: 'Overall workout routines' },
+    {name: 'Diet plan', description: 'Diet plan according to your body  '}
+  ];
+
+  GymModel.countDocuments({}).maxTimeMS(30000)
+  .then((count) => {
+    if (count === 0) {
+      return GymModel.insertMany(gymModels);
+    } else {
+      console.log('Already exists');
+      
+    }
+  })
 
 
   const fitnessData = [
@@ -90,12 +107,10 @@ console.log('MongoDB connected to the server')  })
         { stepNumber: 2, description: 'Consider timing of meals and nutrients' },
         { stepNumber: 3, description: 'Monitor and adjust diet for optimal results' },
       ],
-    },
-    //other entries
-  ];
+    }  ];
   
   // inserting/saving
-  GymContent.countDocuments({})
+  GymContent.countDocuments({}).maxTimeMS(30000)
   .then((count) => {
     if (count === 0) {
       return GymContent.insertMany(fitnessData);

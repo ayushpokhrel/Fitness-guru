@@ -95,7 +95,7 @@ const fitnessData = [
   // inserting/saving
   GymContent.insertMany(fitnessData)
     .then(() => {
-      console.log('Dummy data inserted successfully');
+      console.log('data inserted successfully');
       mongoose.connection.close();
     })
     .catch(error => {

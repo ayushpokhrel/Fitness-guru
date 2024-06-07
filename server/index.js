@@ -124,6 +124,7 @@ router.post('/gymtype',upload.single('file'), async(req,res)=>{
 router.get('/gymtype',async (req,res)=>{
   // console.log(req.body)
  try{
+  //go to admin panel and add gym models on your own with correct name and then hit upload assets.
  const data=await gymModel.find()
   res.json(data)
   // console.log(data)
